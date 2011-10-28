@@ -1,4 +1,4 @@
 # SSEDAP Client
 
-Awesome, basically.
+Client gem for consuming web services exposed by [SSEDAP](/codykrieger/ssedap)
 
