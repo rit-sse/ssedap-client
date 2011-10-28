@@ -1,0 +1,4 @@
+# SSEDAP Client
+
+Awesome, basically.
+
