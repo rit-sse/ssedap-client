@@ -2,6 +2,12 @@ require "ssedap-client/version"
 
 module SSEDAP
   module Client
-    # Your code goes here...
+    def self.authorize
+      # code...
+    end
+
+    def self.userinfo
+      # code...
+    end
   end
 end

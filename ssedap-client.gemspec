@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "ssedap-client"
   gem.require_paths = ["lib"]
   gem.version       = SSEDAP::Client::VERSION
+
+  gem.requirements  << 'Patron, for HTTPS requests'
+  gem.add_dependency "patron"
 end
