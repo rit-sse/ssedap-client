@@ -10,6 +10,8 @@ Patron ([https://github.com/toland/patron](https://github.com/toland/patron))
 
 
 ```ruby
+require 'ssedap/client'
+
 client = SSEDAP::Client.new "https://ssedap.local"
 
 client.authorize user, pass
