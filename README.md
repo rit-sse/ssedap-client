@@ -13,6 +13,6 @@ Patron ([https://github.com/toland/patron](https://github.com/toland/patron))
 client = SSEDAP::Client.new "https://ssedap.local"
 
 client.authorize user, pass
-  #=> {"status"=>200, "data"=>{"success":true,"user":"cjk7752","user_info":{"role":"Admin"}}}
+  #=> {"status"=>200, "data"=>{"success"=>true, "user"=>"cjk7752", "user_info"=>{"role"=>"Admin"}}}
 ```
 

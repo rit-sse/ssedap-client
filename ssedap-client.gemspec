@@ -16,5 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = SSEDAP::Client::VERSION
 
   gem.requirements  << 'Patron, for HTTPS requests'
+  gem.requirements  << 'JSON, for decoding response bodies'
   gem.add_dependency "patron"
+  gem.add_dependency "json"
 end

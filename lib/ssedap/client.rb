@@ -1,4 +1,5 @@
 require 'patron'
+require 'json'
 
 module SSEDAP
   class Client
@@ -20,7 +21,7 @@ module SSEDAP
 
       retval = {}
       retval["status"] = resp.status
-      retval["data"] = resp.body
+      retval["data"] = JSON.parse resp.body
 
       retval
     end
@@ -38,7 +39,7 @@ module SSEDAP
 
       retval = {}
       retval["status"] = resp.status
-      retval["data"] = resp.body
+      retval["data"] = JSON.parse resp.body
 
       retval
     end
