@@ -29,8 +29,8 @@ module SSEDAP
                        "username=#{username}&password=#{password}&lookup=#{lookup}")
       information["status"] = info.status
       information["info"] = info.body
-      puts info.status
-      puts info.body
+      #puts info.status
+      #puts info.body
       return information
     end
   end
