@@ -1,6 +1,6 @@
 require "ssedap-client/version"
 
-module Ssedap
+module SSEDAP
   module Client
     # Your code goes here...
   end

@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "ssedap-client"
   gem.require_paths = ["lib"]
-  gem.version       = Ssedap::Client::VERSION
+  gem.version       = SSEDAP::Client::VERSION
 end

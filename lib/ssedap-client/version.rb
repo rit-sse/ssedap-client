@@ -1,4 +1,4 @@
-module Ssedap
+module SSEDAP
   module Client
     VERSION = "0.0.1"
   end
