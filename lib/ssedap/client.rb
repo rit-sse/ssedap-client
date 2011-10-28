@@ -20,7 +20,7 @@ module SSEDAP
 
       retval = {}
       retval["status"] = resp.status
-      retval["info"] = resp.body
+      retval["data"] = resp.body
 
       retval
     end
@@ -38,7 +38,7 @@ module SSEDAP
 
       retval = {}
       retval["status"] = resp.status
-      retval["info"] = resp.body
+      retval["data"] = resp.body
 
       retval
     end
@@ -50,6 +50,7 @@ module SSEDAP
       ps.timeout = 10
       ps.base_url = @host
       ps.headers['User-Agent'] = 'ssedap/1.0'
+
       ps
     end
   end
