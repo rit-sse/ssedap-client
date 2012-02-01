@@ -51,6 +51,7 @@ module SSEDAP
       ps.timeout = 10
       ps.base_url = @host
       ps.headers['User-Agent'] = 'ssedap/1.0'
+      ps.insecure = true # this is decidedly not a best practice
 
       ps
     end
