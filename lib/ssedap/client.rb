@@ -17,7 +17,7 @@ module SSEDAP
       password = CGI::unescape password
 
       # make the request
-      resp = ps.post("/api/authorize", "username=#{username}&password=#{password}")
+      resp = ps.post("/api/authorize", "username=#{CGI::escape(username)}&password=#{CGI::escape(password)}")
 
       retval = {}
       retval["status"] = resp.status
@@ -35,7 +35,7 @@ module SSEDAP
       lookup = CGI::unescape lookup
 
       # make the request
-      resp = ps.post("/api/userinfo", "username=#{username}&password=#{password}&lookup=#{lookup}")
+      resp = ps.post("/api/userinfo", "username=#{CGI::escape(username)}&password=#{CGI::escape(password)}&lookup=#{CGI::escape(lookup)}")
 
       retval = {}
       retval["status"] = resp.status
