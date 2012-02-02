@@ -3,7 +3,7 @@ require 'json'
 
 module SSEDAP
   class Client
-    @host = "https://ssedap.se.rit.edu"
+    @host = "https://ssedap"
 
     def initialize(host=nil)
       @host = host unless host.nil?
@@ -13,11 +13,11 @@ module SSEDAP
       ps = session
 
       # url encode parameters
-      username = CGI::unescape username
-      password = CGI::unescape password
+      username = CGI::escape username
+      password = CGI::escape password
 
       # make the request
-      resp = ps.post("/api/authorize", "username=#{CGI::escape(username)}&password=#{CGI::escape(password)}")
+      resp = ps.post("/api/authorize", "username=#{username}&password=#{password}")
 
       retval = {}
       retval["status"] = resp.status
@@ -30,12 +30,12 @@ module SSEDAP
       ps = session
 
       # url encode parameters
-      username = CGI::unescape username
-      password = CGI::unescape password
-      lookup = CGI::unescape lookup
+      username = CGI::escape username
+      password = CGI::escape password
+      lookup = CGI::escape lookup
 
       # make the request
-      resp = ps.post("/api/userinfo", "username=#{CGI::escape(username)}&password=#{CGI::escape(password)}&lookup=#{CGI::escape(lookup)}")
+      resp = ps.post("/api/userinfo", "username=#{username}&password=#{password}&lookup=#{lookup}")
 
       retval = {}
       retval["status"] = resp.status
