@@ -9,6 +9,23 @@ module SSEDAP
       @host = host unless host.nil?
     end
 
+    def createAnon(username, password)
+      ps = session
+
+      # url encode parameters
+      username = CGI::escape username
+      password = CGI::escape password
+
+      # make the request
+      resp = ps.post("api/createAnon", "username=#{username}&password=#{password}")
+
+      retval = {}
+      retval["status"] = resp.status
+      retval["data"] = JSON.parse resp.body
+
+      retval
+    end
+
     def authorize(username, password)
       ps = session
 
