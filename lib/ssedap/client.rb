@@ -9,50 +9,29 @@ module SSEDAP
       @host = host unless host.nil?
     end
 
-    def createAnon(username, password)
-      ps = session
-
-      # url encode parameters
-      username = CGI::escape username
-      password = CGI::escape password
-
-      # make the request
-      resp = ps.post("api/createAnon", "username=#{username}&password=#{password}")
-
-      retval = {}
-      retval["status"] = resp.status
-      retval["data"] = JSON.parse resp.body
-
-      retval
+    def create_anon(username, password)
+      api_cal "/api/create_anon", username: username, password: password
     end
 
     def authorize(username, password)
-      ps = session
-
-      # url encode parameters
-      username = CGI::escape username
-      password = CGI::escape password
-
-      # make the request
-      resp = ps.post("/api/authorize", "username=#{username}&password=#{password}")
-
-      retval = {}
-      retval["status"] = resp.status
-      retval["data"] = JSON.parse resp.body
-
-      retval
+      api_call "/api/authorize", username: username, password: password
     end
 
     def userinfo(username, password, lookup)
+      api_call "/api/userinfo", username: username, password: password, lookup: lookup
+    end
+
+    private
+
+    def api_call(path, *args)
+      if args.first.is_a? Hash
+        options = args.first
+      end
+
+      data = options.map { |k, v| "#{k}=#{CGI::escape v}" }
+
       ps = session
-
-      # url encode parameters
-      username = CGI::escape username
-      password = CGI::escape password
-      lookup = CGI::escape lookup
-
-      # make the request
-      resp = ps.post("/api/userinfo", "username=#{username}&password=#{password}&lookup=#{lookup}")
+      resp = ps.post path, data.join('&')
 
       retval = {}
       retval["status"] = resp.status
@@ -60,8 +39,6 @@ module SSEDAP
 
       retval
     end
-
-    private
 
     def session
       ps = Patron::Session.new
